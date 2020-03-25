@@ -6,24 +6,28 @@ function Register(props) {
   const { touched, errors} = props;
   return (
     <Form>
+      <label htmlFor = "firstName">First Name:</label>
       <Field name="firstName" placeholder="First Name" />
       {touched.firstName && errors.firstName ? (
         <span className="error">{errors.firstName}</span>
       ) : null}
+      <label htmlFor = "lastName">Last Name:</label>
       <Field name="lastName" placeholder="Last Name" />
       {touched.lastName && errors.lastName ? (
         <span className="error">{errors.lastName}</span>
       ) : null}
+      <label htmlFor = "password">Password:</label>
       <Field name="password" placeholder="Password" />
       {touched.password && errors.password ? (
         <span className="error">{errors.password}</span>
       ) : null}
+      <label htmlFor = "email">Email:</label>
       <Field name="email" placeholder="Email" />
       {touched.email && errors.email ? (
         <span className="error">{errors.email}</span>
       ) : null}
-      <label htmlFor="tos">Read the Terms of Service?</label>
-      <Field name="tos" type="checkbox" />
+      <label htmlFor="tos">Read the Terms of Service?
+      <Field name="tos" type="checkbox" /></label>
       {touched.tos && errors.tos ? (
         <span className="error">{errors.tos}</span>
       ) : null}
