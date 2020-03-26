@@ -5,7 +5,7 @@ import * as Yup from "yup";
 function Register(props) {
   const { touched, errors} = props;
   return (
-    <Form>
+    <Form className = "registerForm">
       <label htmlFor = "firstName">First Name:</label>
       <Field name="firstName" placeholder="First Name" />
       {touched.firstName && errors.firstName ? (

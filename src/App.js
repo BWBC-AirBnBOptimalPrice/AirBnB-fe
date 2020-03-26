@@ -4,6 +4,7 @@ import './App.css';
 import Header from "./components/header"
 import Login from "./components/login"
 import Register from "./components/register"
+import PropertyCreate from "./components/propertyCreate";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Route path = "/" component = {Header}/>
       <Route exact path = "/" component = {Login}/>
       <Route path = "/register" component = {Register}/>
+      <Route path = "/createhome" component = {PropertyCreate}/>
     </div>
   );
 }
