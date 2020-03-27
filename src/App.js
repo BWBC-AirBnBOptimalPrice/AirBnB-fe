@@ -1,6 +1,8 @@
 import React from 'react';
 import {Route} from "react-router-dom";
 import './App.css';
+import { connect } from 'react-redux';
+
 import Header from "./components/header"
 import Login from "./components/login"
 import Register from "./components/register"
@@ -14,5 +16,7 @@ function App() {
     </div>
   );
 }
+
+
 
 export default App;
