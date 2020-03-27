@@ -20,7 +20,7 @@ function Login(props) {
 
 
       <button type="submit" disabled={!props.isValid}>
-        Register!
+        Login!
       </button>
     </Form>
   );

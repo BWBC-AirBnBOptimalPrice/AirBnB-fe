@@ -20,19 +20,32 @@ a{
   margin: 1%;
 }
 
-
 form{
-  border: 1px solid;
-  margin: 5%;
-  display: flex;
-  justify-content: space-around;
-  flex-direction: column;
   box-shadow: 2px 2px gray;
+  background: lightgrey;
+  border: 1px solid;
+  display: flex;
+  flex-direction: column;
+}
+.registerForm{
+  
+  margin: 5% 0;
+  
+  justify-content: space-around;
+  
+  padding: 3%;
+  
+  border-radius: 25px;
+  
 }
 
-input, button{
+input, label{
   margin: 1%;
   
+}
+button{
+  margin-top: 4%;
+  font-weight: bold;
 }
 
 .loginForm{
@@ -48,6 +61,10 @@ input, button{
   background: lightgrey;
   box-shadow: 2px 2px grey;
 }
-.loginForm input, .loginForm label{
-  margin: 1%;
+
+
+.propertyCreate{
+  padding: 2%;
+  margin:4% ;
+
 }
