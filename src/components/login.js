@@ -1,6 +1,7 @@
 import React from "react";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
+import { axiosWithAuth } from '../utils/axiosWithAuth'
 
 function Login(props) {
     const { touched, errors} = props;
@@ -40,7 +41,16 @@ export default withFormik({
     password: Yup.string().required("Please provide your password.")
   }),
   handleSubmit: (values, formikBag) => {
-    console.log(values);
+    console.log('Test are these values', values);
+    axiosWithAuth()
+    .post("/auth/login", values)
+    .then(response => {
+      console.log(response)
+      localStorage.setItem("token", response.data.token);
+    })
+    .catch(error => {
+      console.log("Error", error);
+    });
     formikBag.setStatus("Logging in!");
     formikBag.resetForm();
   }

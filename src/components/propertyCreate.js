@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from 'react-redux';
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 
@@ -77,7 +78,12 @@ function PropertyCreate(props) {
   );
 }
 
-export default withFormik({
+
+const mapStateToProps = state => {
+    return state
+}
+
+export default connect(mapStateToProps)(withFormik({
   mapPropsToValues: props => {
     return {
       address: props.address || "",
@@ -114,4 +120,4 @@ export default withFormik({
     formikBag.setStatus("Submitting Home!");
     formikBag.resetForm();
   }
-})(PropertyCreate);
+})(PropertyCreate));

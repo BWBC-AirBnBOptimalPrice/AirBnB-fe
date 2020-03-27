@@ -1,4 +1,5 @@
 import React from "react";
+import { axiosWithAuth } from '../utils/axiosWithAuth';
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 
@@ -26,11 +27,6 @@ function Register(props) {
       {touched.email && errors.email ? (
         <span className="error">{errors.email}</span>
       ) : null}
-      <label htmlFor="tos">Read the Terms of Service?
-      <Field name="tos" type="checkbox" /></label>
-      {touched.tos && errors.tos ? (
-        <span className="error">{errors.tos}</span>
-      ) : null}
       <button type="submit" disabled={!props.isValid}>
         Register!
       </button>
@@ -44,8 +40,7 @@ export default withFormik({
       firstName: props.firstName || "",
       lastName: props.lastName || "",
       password: props.password || "",
-      email: props.email || "",
-      tos: props.tos || false
+      email: props.email || ""
     };
   },
   validationSchema: Yup.object().shape({
@@ -54,11 +49,18 @@ export default withFormik({
     password: Yup.string().required("Please set your password."),
     email: Yup.string()
       .email("Email must be valid!")
-      .required("Please provide an email."),
-    tos: Yup.boolean().oneOf([true], "Please agree to the Terms of Service.")
+      .required("Please provide an email.")
   }),
   handleSubmit: (values, formikBag) => {
     console.log(values);
+    axiosWithAuth()
+    .post('/auth/register', values)
+    .then(response => {
+      console.log(response)
+    })
+    .catch(error => {
+      console.log(error)
+    })
     formikBag.setStatus("Form Submitting!");
     formikBag.resetForm();
   }

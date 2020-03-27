@@ -1,30 +1,29 @@
-import React from 'react';
-import {Route} from "react-router-dom";
-import './App.css';
-import { connect } from 'react-redux';
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import "./App.css";
 
-import Header from "./components/header"
-import Login from "./components/login"
-import Register from "./components/register"
+import Header from "./components/header";
+import Login from "./components/login";
+import Register from "./components/register";
 import PropertyCreate from "./components/propertyCreate";
+import PrivateRoute from "./components/PrivateRoute";
 
 import PropertyView from "./components/propertyView";
 
-
 function App() {
   return (
-    <div className="App">
-      <Route path = "/" component = {Header}/>
-      <Route exact path = "/" component = {Login}/>
-      <Route path = "/register" component = {Register}/>
-      <Route path = "/createhome" component = {PropertyCreate}/>
-
-      <Route path = "/viewproperties" component = {PropertyView}/>
-
-    </div>
+    <Router>
+      <div className='App'>
+        <Header />
+        <Switch>
+          <PrivateRoute exact path='/createhome' component={PropertyCreate} />
+          <PrivateRoute exact path='/viewproperties' component={PropertyView} />
+          <Route exact path='/register' component={Register} />
+          <Route exact path='/' component={Login} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
-
-
 
 export default App;

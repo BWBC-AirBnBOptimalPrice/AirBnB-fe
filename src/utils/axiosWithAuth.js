@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = '';
+const url = 'https://lambda-airbnb.herokuapp.com';
 
 export const axiosWithAuth = () => {
   return axios.create({
