@@ -1,12 +1,14 @@
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 
-export const USER_LOGIN_START = "USER_LOGIN_START";
-export const USER_LOGIN_SUCCESS = "USER_LOGIN_SUCCESS";
-export const USER_LOGIN_FAILURE = "USER_LOGIN_FAILURE";
+
 
 export const USER_REGISTER_START = "USER_REGISTER_START";
 export const USER_REGISTER_SUCCESS = "USER_REGISTER_SUCCESS";
 export const USER_REGISTER_FAILURE = "USER_REGISTER_FAILURE";
+
+export const CREATE_PROPERTY_START = 'CREATE_PROPERTY_START';
+export const CREATE_PROPERTY_SUCCESS = 'CREATE_PROPERTY_SUCCESS';
+export const CREATE_PROPERTY_FAILURE = 'CREATE_PROPERTY_FAILURE';
 
 export const registerUser = userData => dispatch => {
     dispatch({ type: USER_REGISTER_START });
@@ -22,16 +24,15 @@ export const registerUser = userData => dispatch => {
       });
   };
 
-  export const login = userData => dispatch => {
-    dispatch({ type: USER_LOGIN_START });
+  export const createProperty = propertyData => dispatch => {
+    dispatch({ type: CREATE_PROPERTY_START });
+    propertyData.price = '$100';
     axiosWithAuth()
-      .post("/auth/login", userData)
+      .post('/user/:id', propertyData)
       .then(response => {
-        dispatch({ type: USER_LOGIN_SUCCESS, payload: userData.username });
-        localStorage.setItem("token", response.data.token);
+        dispatch({ type: CREATE_PROPERTY_SUCCESS, payload: response.data })
       })
       .catch(error => {
-        dispatch({ type: USER_LOGIN_FAILURE, payload: error.data });
-        console.log("Error", error);
-      });
-  };
+        dispatch({ type: CREATE_PROPERTY_FAILURE, payload: error.data})
+      })
+  }

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import { connect } from 'react-redux';
+//import axios from "axios";
 
-function PropertyView() {
-  const [properties, setProperties] = useState([]);
+function PropertyView(props) {
 
-  useEffect(
+  /*useEffect(
     axios
       .get("https://lambda-airbnb.herokuapp.com")
       .then(response => {
@@ -12,11 +12,11 @@ function PropertyView() {
         setProperties(response);
       })
       .catch(err => console.log(err))
-  );
+  );*/
 
   return (
     <div className="properties">
-      {properties.map(home => (
+      {props.properties.map(home => (
         <div className="propertyCard">
           <div className="address">
             <h2>{home.address}</h2>
@@ -46,4 +46,11 @@ function PropertyView() {
     </div>
   );
 }
-export default PropertyView;
+
+const mapStateToProps = state => {
+  return {
+    properties: state.properties
+  }
+}
+
+export default connect(mapStateToProps)(PropertyView);
