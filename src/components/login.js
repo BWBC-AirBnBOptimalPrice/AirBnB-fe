@@ -47,6 +47,7 @@ export default withFormik({
     .then(response => {
       console.log(response)
       localStorage.setItem("token", response.data.token);
+      localStorage.setItem('userID', response.data.message);
     })
     .catch(error => {
       console.log("Error", error);
