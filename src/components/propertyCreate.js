@@ -1,9 +1,9 @@
 import React from "react";
 import { connect } from 'react-redux';
-import { withFormik, Form, Field } from "formik";
-import * as Yup from "yup";
+//import { withFormik, Form, Field } from "formik";
+//import * as Yup from "yup";
 
-function PropertyCreate(props) {
+/*function PropertyCreate(props) {
   const { touched, errors } = props;
   return (
     <Form className="propertyCreate">
@@ -71,7 +71,7 @@ function PropertyCreate(props) {
         <span className="error">{errors.amenities}</span>
       ) : null}
 
-      <button type="submit" disabled={!props.isValid}>
+      <button type="submit" disabled={props.isValid}>
         Submit home!
       </button>
     </Form>
@@ -120,4 +120,6 @@ export default connect(mapStateToProps)(withFormik({
     formikBag.setStatus("Submitting Home!");
     formikBag.resetForm();
   }
-})(PropertyCreate));
+})(PropertyCreate));*/
+
+const 
