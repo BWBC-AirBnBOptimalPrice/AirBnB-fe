@@ -17,8 +17,8 @@ function App() {
       <div className='App'>
         <Header />
         <Switch>
-          <PrivateRoute exact path='/createhome' component={CreateProperty} />
-          <PrivateRoute exact path='/viewproperties' component={PropertyView} />
+          <Route exact path='/createhome' component={CreateProperty} />
+          <Route exact path='/viewproperties' component={PropertyView} />
           <Route exact path='/register' component={Register} />
           <Route exact path='/' render={(props) => <Login {...props} userId={props.userId}/>} />
         </Switch>
