@@ -36,7 +36,7 @@ function PropertyView(props) {
   return (
     <div>
     {(!props.properties.length ? <div><p>No Properties Found</p></div> : props.properties.map(home => (
-    <Card className={classes.root}>
+    <Card className={classes.root} className = "homecv">
       <CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
         {home.description}

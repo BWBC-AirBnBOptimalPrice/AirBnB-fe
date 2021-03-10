@@ -14,7 +14,7 @@ const CreateProperty = (props) => {
 
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)} className = "homecv">
         <input type="text" placeholder="Address" name="address" ref={register({required: true})} />
         <input type="text" placeholder="City" name="city" ref={register({required: true})} />
         <input type="text" placeholder="State" name="state" ref={register({required: true, min: 2})} />
